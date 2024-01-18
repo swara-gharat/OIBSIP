@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  hr {
+    border: 1px solid #000000;
+    margin: 20px 0; 
+}
+  
+  .container {
+    background-color: #d9beff6e;
+    min-height: 100vh;
+    border: 10px solid #ffffff;
+  }
+  
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .top_section {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .top_section h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #1d1e4c;
+    text-transform: uppercase;
+  }
+  .top_section h4 {
+    font-size: 30px;
+    text-align: end;
+  }
+  
+  .image_container {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .image_container,
+  img {
+    width: 300px;
+    height: 320px;
+  }
+  .about_section {
+    margin-top: 50px;
+  }
+  .about_section h2 {
+    font-size: 70px;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+  .about_section p {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 1.2px;
+    text-align: justify;
+  }
+  .Achivements_section {
+    margin: 50px  0;
+  }
+  .Achivements_section h2 {
+    font-size: 70px;
+    font-weight: 400;
+    margin-bottom : 20px;
+  }
+  .Achivements_section ul {
+    margin-left: 50px;
+    font-size: 70px;
+    text-align: justify;
+    line-height: 30px;
+    letter-spacing: 1.2px;
+  }
+  .Achivements_section li {
+    font-size: 70px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 30px;
+    letter-spacing: 1.2px;
+    text-align: justify;
+  }
+  
+  footer {
+    margin: 50px 0;
+  }
+  footer p {
+    text-align: end;
+  }
