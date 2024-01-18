@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('D:/SWARA/internship 2/login register page/login page.png'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #secured-content {
+            display: none;
+            max-width: 300px;
+            margin: 0 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<form id="registerForm">
+    <h2>User Registration</h2>
+    <label for="regUsername">Username:</label>
+    <input type="text" id="regUsername" required>
+
+    <label for="regPassword">Password:</label>
+    <input type="password" id="regPassword" required>
+
+    <button type="button" onclick="registerUser()">Register</button>
+</form>
+
+<form id="loginForm">
+    <h2>User Login</h2>
+    <label for="loginUsername">Username:</label>
+    <input type="text" id="loginUsername" required>
+
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" required>
+
+    <button type="button" onclick="loginUser()">Login</button>
+</form>
+
+<div id="secured-content">
+    <h2>Secured Page</h2>
+    <p>Welcome to the secured page!</p>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+    // Placeholder for user data (in-memory storage)
+    const users = [];
+
+    function registerUser() {
+        const username = document.getElementById("regUsername").value;
+        const password = document.getElementById("regPassword").value;
+
+        // Check if the username is already registered
+        if (users.find(user => user.username === username)) {
+            alert("Username already registered. Choose a different one.");
+            return;
+        }
+
+        // Use a proper password hashing library in a real-world scenario
+        const hashedPassword = btoa(password); // Basic Base64 encoding for simplicity
+
+        users.push({ username, password: hashedPassword });
+
+        alert("Registration successful. You can now login.");
+    }
+
+    function loginUser() {
+        const username = document.getElementById("loginUsername").value;
+        const password = document.getElementById("loginPassword").value;
+
+        const user = users.find(user => user.username === username);
+
+        if (!user || user.password !== btoa(password)) {
+            alert("Invalid username or password. Please try again.");
+            return;
+        }
+
+        showSecuredPage();
+    }
+
+    function showSecuredPage() {
+        document.getElementById("registerForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("secured-content").style.display = "block";
+    }
+
+    function logout() {
+        document.getElementById("registerForm").style.display = "block";
+        document.getElementById("loginForm").style.display = "block";
+        document.getElementById("secured-content").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
